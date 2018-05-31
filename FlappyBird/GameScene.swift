@@ -373,6 +373,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             scene.scaleMode = self.scaleMode//场景填充方式
             self.view?.presentScene(scene,transition:SKTransition.fade(withDuration: 1))//场景添加到控制器的视图中
             self.view?.ignoresSiblingOrder = true
+            if #available(iOS 10.0, *) {
+                self.view?.preferredFramesPerSecond = 60
+            }
+            self.view?.showsFPS = true
         }
     }
     

@@ -17,13 +17,13 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             let scene = GameScene(size: view.bounds.size)//创建一个场景
-            
             scene.scaleMode = .aspectFill//场景填充方式
-            
             view.presentScene(scene)//场景添加到控制器的视图中
-            
             view.ignoresSiblingOrder = true
-            
+            if #available(iOS 10.0, *) {
+                view.preferredFramesPerSecond = 60
+            }
+            view.showsFPS = true
         }
     }
     
